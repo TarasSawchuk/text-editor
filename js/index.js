@@ -1,7 +1,7 @@
 let colorPalette = ['000000', 'FF9966', '6699FF', '99FF66', 'CC0000', '00CC00', '0000CC', '333333', '0066FF', 'FFFFFF'],
-    fontPalette = document.getElementsByClassName('font-color')[0],
-    bgcPalette = document.getElementsByClassName('font-bgc')[0],
-    content = document.getElementById('#editable-container');
+    fontPalette = $('.font-color'),
+    bgcPalette = $('.font-bgc'),
+    content = $('#editable-container').get(0);
 
 for (let i = 0; i < colorPalette.length; i++) {
   fontPalette.append('<a href="#" data-command="forecolor" data-value="' + '#' + colorPalette[i] + '" style="background-color:' + '#' + colorPalette[i] + ';" class="palette-item"></a>');
