@@ -20,13 +20,23 @@ $('.toolbar a').click(function(e) {
 
 $('#editable-container').keypress(function(e){
   if(e.which == 13){
-      document.execCommand('insertHTML', false, '<br>');
+    document.execCommand('insertHTML', false, '<br>');
   }
 });
 
 $('.convert-btn').click(function(){
-  let arrOfcontent = [...content.childNodes];
+  let jsonContainer = $('#json-container').get(0);
+  let arrOfSpan = [...content.childNodes].filter( el => el.tagName === "SPAN");
 
-  console.log(arrOfcontent);
+
+  arrOfSpan.forEach( function(obj){
+    jsonContainer.innerHTML += `<span class='json-elm'>
+      text:${obj.innerText}<br>
+      fontSize:${obj.style.fontSize}<br>
+      color:${obj.style.color}<br>
+    </span>`
+  });
+
+  console.log(arrOfSpan);
   $('#json-container').css('display', 'block');
 });
